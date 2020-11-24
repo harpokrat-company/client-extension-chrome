@@ -1,8 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # WebExt files
-background/background.bundled.js
-background/background.bundled.worker.js
 background/api.bundled.js
 background/api.bundled.worker.js
 

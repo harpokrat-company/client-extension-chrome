@@ -145,6 +145,101 @@ function find_form_free() {
   }
 }
 
+function find_form_cdiscount() {
+  let form = document.querySelectorAll("form[id='LoginForm']")[0]
+  return {
+    submit: {
+      elem: form,
+      event: "submit"
+    },
+    fields: {
+      user: form.querySelectorAll("input[id='CustomerLogin_CustomerLoginFormData_Email']")[0],
+      pass: form.querySelectorAll("input[id='CustomerLogin_CustomerLoginFormData_Password']")[0]
+    },
+    final: true
+  }
+}
+
+function find_form_sfr() {
+  let form = document.querySelectorAll("form[id='loginForm']")[0]
+  return {
+    submit: {
+      elem: form,
+      event: "submit"
+    },
+    fields: {
+      user: form.querySelectorAll("input[id='username']")[0],
+      pass: form.querySelectorAll("input[id='password']")[0]
+    },
+    final: true
+  }
+}
+
+function find_form_lefigaro() {
+  let form = document.querySelectorAll("form")[0]
+  console.log(form);
+  return {
+    submit: {
+      elem: form,
+      event: "submit"
+    },
+    fields: {
+      user: form.querySelectorAll("input[id='username']")[0],
+      pass: form.querySelectorAll("input[id='password']")[0]
+    },
+    final: true
+  }
+}
+
+function find_form_jvc() {
+  let form = document.querySelectorAll("form")[0]
+  console.log(form);
+  return {
+    submit: {
+      elem: form,
+      event: "submit"
+    },
+    fields: {
+      user: form.querySelectorAll("input[name='login_pseudo']")[0],
+      pass: form.querySelectorAll("input[name='login_password']")[0]
+    },
+    final: true
+  }
+}
+
+function find_form_marmiton() {
+  let form = document.querySelectorAll("div[id='content']")[0].querySelectorAll("form")[0]
+  console.log(form);
+  return {
+    submit: {
+      elem: form,
+      event: "submit"
+    },
+    fields: {
+      user: form.querySelectorAll("input[id='af_login']")[0],
+      pass: form.querySelectorAll("input[id='af_pass']")[0]
+    },
+    final: true
+  }
+}
+
+function find_form_ouest_france() {
+  let form = document.querySelectorAll("form[id='kc-form-login']")[0]
+  let user = form.querySelectorAll("input[id='username']")
+  console.log(user);
+  return {
+    submit: {
+      elem: form,
+      event: "submit"
+    },
+    fields: {
+      user: (user.length != 0 ? user[0] : undefined),
+      pass: (user.length == 0 ? form.querySelectorAll("input[id='password']")[0] : undefined)
+    },
+    final: (user.length != 0 ? false : true)
+  }
+}
+
 function find_form_twitter() {
   let form = document.querySelectorAll("form[action='/sessions']")[0]
   return {
@@ -202,6 +297,12 @@ function find_form() {
     ["secure.lemonde.fr", find_form_lemonde],
     ["login.yahoo.com", find_form_yahoo],
     ["subscribe.free.fr", find_form_free],
+    ["order.cdiscount.com", find_form_cdiscount],
+    ["sfr.fr", find_form_sfr],
+    ["auth.ouest-france.fr", find_form_ouest_france],
+    ["connect.lefigaro.fr", find_form_lefigaro],
+    ["jeuxvideo.com", find_form_jvc],
+    ["marmiton.org", find_form_marmiton],
     ["twitter.com", find_form_twitter],         // -----------
     ["instagram.com", find_form_instagram],     // -----------
     ["signin.ebay.com", find_form_ebay],        // -----------
@@ -213,6 +314,7 @@ function find_form() {
     if (curr_host == k || curr_host.search("." + k) != -1) {
       try {
         let r = f()
+        console.log(r);
         return r
       } catch (error) {
         console.log(error)

@@ -21,7 +21,7 @@ async function open_modal_dialog(content, actions, close_event) {
   modal.style = `
   display: block;
   position: fixed;
-  z-index: 999999;
+  z-index: 999999999;
   left: 0;
   top: 0;
   width: 100%;
@@ -144,7 +144,7 @@ async function open_modal_list(content, action, close_event) {
   modal.style = `
   display: block;
   position: fixed;
-  z-index: 999999;
+  z-index: 999999999;
   left: 0;
   top: 0;
   width: 100%;
@@ -267,7 +267,7 @@ async function open_modal_login(action, close_event) {
   modal.style = `
   display: block;
   position: fixed;
-  z-index: 999999;
+  z-index: 999999999;
   left: 0;
   top: 0;
   width: 100%;

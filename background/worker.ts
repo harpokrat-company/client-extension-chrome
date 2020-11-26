@@ -4,7 +4,7 @@ import { HarpokratApi, IResource, IToken, IPassword, ISecret, IHclSecret, IResou
 const ctx: Worker = self as any;
 
 const wasmUrl = 'https://static.harpokrat.com/hcl/hcl4.wasm';
-const apiUrl = 'https://api.dev.harpokrat.com/v1/';
+const apiUrl = 'https://api.harpokrat.com/v1/';
 
 var client = new HarpokratApi({
     auth: {
